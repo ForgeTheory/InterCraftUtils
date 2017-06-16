@@ -8,6 +8,8 @@ def main(args):
 
 
 def get_region_files(world_dir):
+    """Return a list of region files in the world directory."""
+
     overworld_path = path.join(world_dir, "region")
     nether_path = path.join(world_dir, "DIM1", "region")
     end_path = path.join(world_dir, "DIM-1", "region")
@@ -19,6 +21,8 @@ def get_region_files(world_dir):
 
 
 def chunks_in_region_file(filename):
+    """Return the number of chunks generated in a region file."""
+
     chunks = 0
 
     with open(filename, 'rb') as f:
@@ -31,6 +35,8 @@ def chunks_in_region_file(filename):
 
 
 def count_chunks(dirname):
+    """Return the total number of chunks in a Minecraft world."""
+
     region_files = get_region_files(dirname)
     chunks = 0
     for f in region_files:
