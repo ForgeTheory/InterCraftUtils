@@ -19,14 +19,13 @@ def get_region_files(world_dir):
 
 
 def chunks_in_region_file(filename):
-    f = open(filename, 'rb')
-    f.seek(0)
-
     chunks = 0
-    for i in range(1024):
-        entry = f.read(4)
-        if entry[-1] != 0:
-            chunks += 1
+
+    with open(filename, 'rb') as f:
+        for i in range(1024):
+            entry = f.read(4)
+            if entry[-1] != 0:
+                chunks += 1
 
     return chunks
 
